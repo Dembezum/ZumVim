@@ -3,8 +3,7 @@ return {
     { 'rose-pine/neovim', name = 'rose-pine' },
     { "williamboman/mason.nvim", build = ":MasonUpdate", cmd = "Mason" },
     { "williamboman/mason-lspconfig.nvim" },
-    { "numToStr/Comment.nvim" }, -- Comments
-    { "kyazdani42/nvim-web-devicons" }, -- icons
+    -- { "kyazdani42/nvim-web-devicons" }, -- icons
     { "neovim/nvim-lspconfig", event = "BufReadPre" }, -- LSP
     { "mbbill/undotree" }, -- undo tree
     { "lukas-reineke/indent-blankline.nvim" }, -- indent blankline
@@ -20,6 +19,14 @@ return {
     { "nvim-telescope/telescope-ui-select.nvim" },
     { "goolord/alpha-nvim" }, -- title screen
     { "asiryk/auto-hlsearch.nvim" }, -- better search
+
+    {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    },
+
     {
         "echasnovski/mini.surround",
         version = "*",
@@ -27,12 +34,18 @@ return {
             require("mini.surround").setup({})
         end,
     },
+
     {
-        "nvim-neo-tree/neo-tree.nvim",
-        cmd = "Neotree",
+        "nvim-tree/nvim-tree.lua",
         version = "*",
-        dependencies = { "MunifTanjim/nui.nvim", lazy = true },
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("nvim-tree").setup {}
+        end,
     },
+
     {
         "rcarriga/nvim-notify",
         config = function()
@@ -55,27 +68,7 @@ return {
             "dburian/cmp-markdown-link",
             "hrsh7th/cmp-buffer",
             "jcha0713/cmp-tw2css",
-            { "mtoohey31/cmp-fish", ft = "fish" },
-            "hrsh7th/cmp-nvim-lua",
-            "hrsh7th/cmp-nvim-lsp",
-            "amarakon/nvim-cmp-fonts",
-            "saadparwaiz1/cmp_luasnip",
-            "dcampos/cmp-emmet-vim",
-            "ray-x/cmp-treesitter",
         },
-
-        {
-            "L3MON4D3/LuaSnip",
-            -- follow latest release.
-            version = "<CurrentMajor>.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-            -- install jsregexp (optional!).
-            build = "make install_jsregexp"
-        },
-        config = function()
-            require("user.cmp")
-        end,
-    }, -- Cmp
-    {
         "iamcco/markdown-preview.nvim",
         ft = "markdown",
         build = function()
@@ -83,6 +76,34 @@ return {
         end,
     }, -- preview markdown files on browser
 
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        lazy = true,
+        event = "BufReadPost",
+        dependencies = {
+            { "nvim-treesitter/nvim-treesitter-textobjects" },
+        },
+        config = function()
+            require("config.plugins.treesitter")
+        end,
+    }, -- a better highlight for everything
 
 
+    -- autopairing of (){}[] etc
+    {
+        "windwp/nvim-autopairs",
+        opts = {
+            fast_wrap = {},
+            disable_filetype = { "TelescopePrompt", "vim" },
+        },
+        config = function(_, opts)
+            require("nvim-autopairs").setup(opts)
+
+            -- setup cmp for autopairs
+            local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+            require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+        end,
+    },
 }
+
