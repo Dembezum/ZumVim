@@ -1,4 +1,4 @@
-return {
+local opts = {
     require("bufferline").setup{
         options = {
             indicator = {
@@ -28,3 +28,4 @@ return {
         }
     }
 }
+return opts
