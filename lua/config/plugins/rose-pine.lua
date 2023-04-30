@@ -38,9 +38,8 @@ local opts = {
         highlight_groups = {
             ColorColumn = { bg = '#232736' },
             StatusLine  = { bg = '#232736' },
-            NvimTreeNormal = { bg = '#191c26'},
-            NvimTreeFolderName = { fg = '#8caaee'},
-            NvimTreeRootFolder = { fg = '#a6e3a1'},
+            NeoTreeDirectoryIcon = { fg = 'iris'},
+            NeoTreeDirectoryName= { fg = 'iris'},
             CursorLine  = { fg = 'text', bg = '#232736' },
             IndentBlanklineContextChar = {fg = 'iris' },
             String = { fg = 'gold' },

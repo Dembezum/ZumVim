@@ -1,10 +1,6 @@
 return {
 
     { 'rose-pine/neovim', name = 'rose-pine' },
-    { "williamboman/mason.nvim", build = ":MasonUpdate", cmd = "Mason" },
-    { "williamboman/mason-lspconfig.nvim" },
-    -- { "kyazdani42/nvim-web-devicons" }, -- icons
-    { "neovim/nvim-lspconfig", event = "BufReadPre" }, -- LSP
     { "mbbill/undotree" }, -- undo tree
     { "lukas-reineke/indent-blankline.nvim" }, -- indent blankline
     { "akinsho/bufferline.nvim", version = "v3.*" },
@@ -19,7 +15,6 @@ return {
     { "nvim-telescope/telescope-ui-select.nvim" },
     { "goolord/alpha-nvim" }, -- title screen
     { "asiryk/auto-hlsearch.nvim" }, -- better search
-
     {
         'numToStr/Comment.nvim',
         config = function()
@@ -32,17 +27,6 @@ return {
         version = "*",
         config = function()
             require("mini.surround").setup({})
-        end,
-    },
-
-    {
-        "nvim-tree/nvim-tree.lua",
-        version = "*",
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
-        config = function()
-            require("nvim-tree").setup {}
         end,
     },
 
@@ -89,6 +73,14 @@ return {
         end,
     }, -- a better highlight for everything
 
+        { "nvim-neo-tree/neo-tree.nvim",
+        dependencies = { 
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        }
+    },
+
 
     -- autopairing of (){}[] etc
     {
@@ -106,4 +98,3 @@ return {
         end,
     },
 }
-
