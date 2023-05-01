@@ -42,6 +42,8 @@ local opts = {
       NvimTreeFolderName = { fg = '#8caaee'},
       cursorline = { bg = '#232736'},
       NvimTreeRootFolder = { fg = '#a6e3a1'},
+      BufferLineBackground = { bg = '#1c1f2b' },
+      BufferLineBufferSelected = { fg = 'iris' },
       IndentBlanklineContextChar = {fg = 'iris' },
       String = { fg = 'gold' },
       -- Type = { fg = 'foam' },

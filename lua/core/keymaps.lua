@@ -7,6 +7,8 @@ map('n', '<c-h>', ':wincmd h<CR>')
 map('n', '<c-j>', ':wincmd j<CR>')
 map('n', '<c-k>', ':wincmd k<CR>')
 map('n', '<c-l>', ':wincmd l<CR>')
+map('n', '<leader>.', ':BufferLineCyclePrev<CR>', { desc = "Buf Next" })
+map('n', '<leader>,', ':BufferLineCycleNext<CR>', { desc = "Buf Prev" })
 -- Text editing key mappings
 map('n', '<leader>d', [[:g/^$/d]], { desc = "Empty lines" })
 map('n', '<leader>q', [[:%s/\s\+$//]], { desc = "Trailing whitespaces" })
@@ -18,7 +20,7 @@ map('n', '<leader>mds', ':MarkdownPreviewStop<CR>')
 map('n', '<leader>mdt', ':MarkdownPreviewToggle<CR>')
 
 -- File explorer key mapping
-map('n', '<leader>p', ':Explore<CR>')
+map('n', '<leader>pv', ':Explore<CR>')
 
 -- Clear screen and run code key mappings
 map('n', '<C-b>', '<cmd> !clear && time cargo run %<CR>', { silent = false})

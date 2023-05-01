@@ -6,6 +6,6 @@ require("nvim-tree").setup({
     adaptive_size = true,
   },
   renderer = {
-      root_folder_label = false,
+    root_folder_label = false,
   },
 })

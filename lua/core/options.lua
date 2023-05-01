@@ -21,12 +21,13 @@ local opts = {
   wrap = false,
   tabstop = 4,
   number = true,
+  scrolloff = 7,
+  sidescrolloff = 8,
   splitright = true,
+  showmode = false,
   cmdheight = 1,
 }
 
 for k, v in pairs(opts) do
   vim.opt[k] = v
 end
-
-vim.cmd("colorscheme rose-pine")
