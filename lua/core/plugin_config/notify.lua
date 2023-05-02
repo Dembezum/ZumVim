@@ -1,6 +1,6 @@
 local opts = {
   require("notify").setup(),
-  background_colour = "NotifyBackground",
+  background_colour = "#1c1f2b",
   fps = 60,
   icons = {
     DEBUG = "",

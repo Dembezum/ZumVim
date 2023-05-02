@@ -9,6 +9,7 @@ map('n', '<c-k>', ':wincmd k<CR>')
 map('n', '<c-l>', ':wincmd l<CR>')
 map('n', '<leader>.', ':BufferLineCyclePrev<CR>', { desc = "Buf Next" })
 map('n', '<leader>,', ':BufferLineCycleNext<CR>', { desc = "Buf Prev" })
+
 -- Text editing key mappings
 map('n', '<leader>d', [[:g/^$/d]], { desc = "Empty lines" })
 map('n', '<leader>q', [[:%s/\s\+$//]], { desc = "Trailing whitespaces" })
