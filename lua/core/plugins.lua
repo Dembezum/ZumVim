@@ -13,24 +13,33 @@ vim.opt.rtp:prepend(lazypath)
 
 
 local plugins = {
-  'rose-pine/neovim', name = 'rose-pine',
+  'rose-pine/neovim',
+  name = 'rose-pine',
   'nvim-tree/nvim-tree.lua',
   'nvim-tree/nvim-web-devicons',
   'windwp/nvim-autopairs',
+  'p00f/clangd_extensions.nvim',
   'nvim-lualine/lualine.nvim',
   'nvim-treesitter/nvim-treesitter',
   'lewis6991/gitsigns.nvim',
+  'lukas-reineke/indent-blankline.nvim',
   'tpope/vim-fugitive',
   'folke/which-key.nvim',
   'mbbill/undotree',
   'tpope/vim-commentary',
+
+  {
+    'ray-x/navigator.lua',
+    dependencies = {
+      'ray-x/guihua.lua',
+      run = "cd lua/fzy && make",
+      'neovim/nvim-lspconfig',
+      'nvim-treesitter/nvim-treesitter',
+    }
+  },
   {
     "rcarriga/nvim-notify",
-    config = function ()
-      require("notify").setup {
-        stages = "fade",
-        timeout = 2000,
-      }
+    config = function()
       vim.notify = require('notify')
     end
   },
@@ -66,7 +75,7 @@ local plugins = {
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.0',
-    dependencies = { {'nvim-lua/plenary.nvim'} }
+    dependencies = { { 'nvim-lua/plenary.nvim' } }
   },
   {
     "folke/which-key.nvim",
@@ -79,21 +88,22 @@ local plugins = {
     'VonHeikemen/lsp-zero.nvim',
     dependencies = {
       -- LSP Support
-      {'neovim/nvim-lspconfig'},             -- Required
-      {                                      -- Optional
-      'williamboman/mason.nvim',
-      build = function()
-        pcall(vim.cmd, 'MasonUpdate')
-      end,
-    },
-    {'williamboman/mason-lspconfig.nvim'}, -- Optional
+      { 'neovim/nvim-lspconfig' }, -- Required
+      {
+        -- Optional
+        'williamboman/mason.nvim',
+        build = function()
+          pcall(vim.cmd, 'MasonUpdate')
+        end,
+      },
+      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
-    -- Autocompletion
-    {'hrsh7th/nvim-cmp'},     -- Required
-    {'hrsh7th/cmp-nvim-lsp'}, -- Required
-    {'L3MON4D3/LuaSnip'},     -- Required
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' },     -- Required
+      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+      { 'L3MON4D3/LuaSnip' },     -- Required
+    }
   }
-}
 
 }
 
