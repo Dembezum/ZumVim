@@ -12,6 +12,7 @@
 My goal of this setup is to make it as simple as possible, not only to setup,
 but also to use.
 
+> last part didn't age well..
 
 * Simple but effecient [LSP](https://neovim.io/doc/user/lsp.html)
 
