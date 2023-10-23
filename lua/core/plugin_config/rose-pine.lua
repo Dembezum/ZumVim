@@ -38,10 +38,10 @@ local opts = {
     highlight_groups = {
       ColorColumn = { bg = '#232736' },
       StatusLine  = { bg = '#232736' },
-      NvimTreeNormal = { bg = '#191c26'},
-      NvimTreeFolderName = { fg = '#8caaee'},
+      -- NvimTreeNormal = { bg = '#191c26'},
+      -- NvimTreeFolderName = { fg = '#8caaee'},
       cursorline = { bg = '#232736'},
-      NvimTreeRootFolder = { fg = '#a6e3a1'},
+      -- NvimTreeRootFolder = { fg = '#a6e3a1'},
       BufferLineBackground = { bg = '#1c1f2b' },
       BufferLineBufferSelected = { fg = 'iris' },
       NotifyBackground = { bg = '#232736'},

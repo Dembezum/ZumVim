@@ -24,10 +24,13 @@ map('n', '<leader>mdt', ':MarkdownPreviewToggle<CR>')
 map('n', '<leader>pv', ':Explore<CR>')
 
 -- Clear screen and run code key mappings
-map('n', '<C-b>', '<cmd> !clear && time cargo run %<CR>', { silent = false })
-map('n', '<C-b>', '<cmd> !clear && time swiftc % && ./main<CR>', { silent = false })
-map('n', '<C-c>', '<cmd> !clear && time gcc % && ./a.out<CR>', { silent = false })
-map('n', '<C-n>', '<cmd> !clear && time python%<CR>', { silent = false })
+-- map('n', '<C-b>', '<cmd> !clear && time cargo run %<CR>', { silent = false })
+-- map('n', '<C-b>', '<cmd> !clear && time swiftc % && ./main<CR>', { silent = false })
+-- map('n', '<C-c>', '<cmd> !clear && time gcc % && ./a.out<CR>', { silent = false })
+-- map('n', '<C-n>', '<cmd> !clear && time python%<CR>', { silent = false })
+
+-- keybind to ls every time you save
+map('n', '<leader>ls', ':w<CR>:pwd<CR>', { silent = false })
 
 -- Other key mappings
 map('n', '<leader>h', ':nohlsearch<CR>')

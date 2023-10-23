@@ -29,7 +29,23 @@ local plugins = {
     'folke/which-key.nvim',
     'mbbill/undotree',
     'tpope/vim-commentary',
-
+    'ayu-theme/ayu-vim',
+    { 'Everblush/nvim', name = 'everblush' },
+    'folke/tokyonight.nvim',
+    {
+        'zbirenbaum/copilot.lua',
+        cmd = 'Copilot',
+        event = 'InsertEnter',
+        config = function()
+            require('copilot').setup(opts)
+        end,
+    },
+    {
+        "zbirenbaum/copilot-cmp",
+        config = function ()
+            require("copilot_cmp").setup()
+        end
+    },
     {
         'ray-x/navigator.lua',
         dependencies = {
@@ -39,24 +55,27 @@ local plugins = {
             'nvim-treesitter/nvim-treesitter',
         }
     },
+
     {
         "iamcco/markdown-preview.nvim",
         config = function()
             vim.fn["mkdp#util#install"]()
         end,
     },
-    {
-        "rcarriga/nvim-notify",
-        config = function()
-            vim.notify = require('notify')
-        end
-    },
+
+    -- {
+    --     "rcarriga/nvim-notify",
+    --     config = function()
+    --         vim.notify = require('notify')
+    --     end
+    -- },
     {
         'numToStr/Comment.nvim',
         config = function()
             require('Comment').setup()
         end
     },
+
     {
         "echasnovski/mini.pairs",
         event = "VeryLazy",
@@ -70,6 +89,7 @@ local plugins = {
         version = "*",
         dependencies = 'nvim-tree/nvim-web-devicons'
     },
+
     -- completion
     'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-nvim-lsp',
@@ -79,11 +99,13 @@ local plugins = {
     "williamboman/mason.nvim",
     "neovim/nvim-lspconfig",
     "williamboman/mason-lspconfig.nvim",
+
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.0',
         dependencies = { { 'nvim-lua/plenary.nvim' } }
     },
+    'AlphaTechnolog/pywal.nvim',
     {
         "folke/which-key.nvim",
         config = function()
@@ -91,6 +113,7 @@ local plugins = {
             vim.o.timeoutlen = 200
         end,
     },
+
     {
         'VonHeikemen/lsp-zero.nvim',
         dependencies = {
@@ -103,6 +126,7 @@ local plugins = {
                     pcall(vim.cmd, 'MasonUpdate')
                 end,
             },
+
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion

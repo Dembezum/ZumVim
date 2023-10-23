@@ -6,3 +6,10 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
         vim.fn.mkdir(dir, "p")
     end
 })
+vim.api.nvim_exec([[
+augroup CiscoIOSColors
+    autocmd!
+    autocmd FileType ciscoios colorscheme ciscoios_colorscheme
+augroup END
+]], false)
+
